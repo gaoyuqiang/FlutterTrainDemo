@@ -19,75 +19,85 @@ class _GameShowState extends State<GameShow> {
     return Container(
       padding: EdgeInsets.only(top: 64, left: 20, right: 20, bottom: 20),
       color: Colors.yellow,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Text('username'),
-                          Container(
-                            padding: EdgeInsets.only(left: 30),
-                            child: Text(widget.name),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text('password'),
-                          Container(
-                            padding: EdgeInsets.only(left: 30),
-                            child: Text(widget.pwd),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.red,
-                ),
-                Text('14'),
-              ],
-            ),
-            //按钮行
-            buildButtonSection(),
-
-            Container(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-              height: 250,
-              color: Colors.green,
-              child: Text(
-                  "1123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj23afdajfa;faj"),
-            ),
-            Image.asset(
-              'images/a.png',
-              width: 120,
-              height: 90,
-            ),
-            RaisedButton(//按钮有背影色,它跟flatButton都有波纹效果
-              child: Text('RaisedButton'),
-              onPressed: () => {
-                print('press'),
-              },
-            ),
-            FlatButton(
-              onPressed: () => {
-                print('flatbutton click'),
-              },
-              child: Text('FlatButton'),
-              color: Colors.blue,
-              textColor: Colors.white,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            ),
-          ]),
+      child: ListView(
+        children: <Widget>[
+          buildColumn(),
+        ],
+      ),
     );
+  }
+
+  Column buildColumn() {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text('username'),
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(widget.name),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text('password'),
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(widget.pwd),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.star,
+                color: Colors.red,
+              ),
+              Text('14'),
+            ],
+          ),
+          //按钮行
+          buildButtonSection(),
+
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+            height: 250,
+            color: Colors.green,
+            child: Text(
+                "1123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj23afdajfa;faj"),
+          ),
+          Image.asset(
+            'images/a.png',
+            width: 120,
+            height: 90,
+          ),
+          RaisedButton(
+            //按钮有背影色,它跟flatButton都有波纹效果
+            child: Text('RaisedButton'),
+            onPressed: () => {
+              print('press'),
+            },
+          ),
+          FlatButton(
+            onPressed: () => {
+              print('flatbutton click'),
+            },
+            child: Text('FlatButton'),
+            color: Colors.blue,
+            textColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          ),
+        ]);
   }
 
   Row buildButtonSection() {
@@ -95,7 +105,7 @@ class _GameShowState extends State<GameShow> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         buildButtonColumn('item1adfaaf'),
-        buildButtonColumn('item2ffsafdf'),
+        buildButtonColumn('item2ffsafdfadfasfasfafafasdfafasfafafa'),
         buildButtonColumn('item3aa'),
       ],
     );
@@ -115,7 +125,12 @@ class _GameShowState extends State<GameShow> {
           ),
           Container(
             padding: EdgeInsets.only(top: 10),
-            child: Text(name),
+            child: Text(
+              name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+            ),
           ),
         ],
       ),
