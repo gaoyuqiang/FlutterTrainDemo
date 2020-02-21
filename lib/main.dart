@@ -1,9 +1,8 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:test_demo/gameShow.dart';
+
+import 'game_show.dart';
+import 'home_page.dart';
 
 bool get isInDebugMode {
   bool inDebugMode = false;
@@ -11,13 +10,12 @@ bool get isInDebugMode {
   return inDebugMode;
 }
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return MaterialApp(
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -39,11 +37,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  // Widget build(BuildContext context) {
+  //   return new Scaffold(
+  //     appBar: new AppBar(
+  //       title: new Text(widget.title),
+  //     ),
+  //     body: GameShow(name:'a', pwd:'a'),
+  //   );
+  // }
+  // @override
   Widget build(BuildContext context) {
-  return new Scaffold(
-      // body: Text("天上有路你不走"),
-      // body: GameShow(name:'a', pwd:'a'),
-      body: GameShow(name: '高高大爷呵呵', pwd: '12345',)
-    );
+    return HomePage();
   }
+
+  // Widget build(BuildContext context) {
+  //   return CupertinoPageScaffold(
+  //     navigationBar: CupertinoNavigationBar(
+  //       middle: Text('Cupertino App Bar'),
+  //     ),
+  //     child: GameShow(name: 'a', pwd: 'a'),
+  //   );
+  // }
 }

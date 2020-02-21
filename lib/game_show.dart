@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_demo/earthListPage.dart';
 
 class GameShow extends StatefulWidget {
   GameShow({
@@ -16,7 +18,11 @@ class GameShow extends StatefulWidget {
 class _GameShowState extends State<GameShow> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('控件集合'),
+      ),
+      body: Container(
       padding: EdgeInsets.only(top: 64, left: 20, right: 20, bottom: 20),
       color: Colors.yellow,
       child: ListView(
@@ -24,6 +30,7 @@ class _GameShowState extends State<GameShow> {
           buildColumn(),
         ],
       ),
+    ),
     );
   }
 
@@ -31,6 +38,17 @@ class _GameShowState extends State<GameShow> {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Stack(
+            alignment: Alignment(0.5, 0.5),
+            children: <Widget>[
+              Image.asset(
+                'images/b.png',
+                width: 120,
+                height: 90,
+              ),
+              Text('Stack'),
+            ],
+          ),
           Row(
             children: <Widget>[
               Expanded(
@@ -70,7 +88,7 @@ class _GameShowState extends State<GameShow> {
 
           Container(
             padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-            height: 250,
+            height: 120,
             color: Colors.green,
             child: Text(
                 "1123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj23afdajfa;faj"),
@@ -79,6 +97,9 @@ class _GameShowState extends State<GameShow> {
             'images/a.png',
             width: 120,
             height: 90,
+          ),
+          Center(
+            child: Text('居中用center控件'),
           ),
           RaisedButton(
             //按钮有背影色,它跟flatButton都有波纹效果
@@ -96,6 +117,65 @@ class _GameShowState extends State<GameShow> {
             textColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          ),
+
+          //material风格 文本框
+          Container(
+            padding: EdgeInsets.only(top: 20),
+            width: 200,
+            height: 50,
+            child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                // border: OutlineInputBorder(
+                //     borderRadius: BorderRadius.circular(15.0),
+                //   ),带圆角的，但是效果不好，选中时边框会变色，唉，四不像,不建议使用
+                hintText: 'Enter a search term',
+              ),
+              onChanged: (text) {
+                print('change $text');
+              },
+            ),
+          ),
+          //ios风格 文本框
+          // Container(
+          //   margin: EdgeInsets.only(top: 20),
+          //   width: 200,
+          //   height: 35,
+          //   child: CupertinoTextField(
+          //     placeholder: 'ios输入框，请输入',
+          //     onChanged: (text) {
+          //       print('change $text');
+          //     },
+          //   ),
+          // ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            width: 200,
+            height: 30,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Color(0xFFFF0000),
+                width: 0.5,
+              ),
+              borderRadius: BorderRadius.circular(10),
+              // shape: BoxShape.circle,//枚举 圆、方形
+            ),
+            child: Center(child: Text('设置边框')),
+          ),
+          FlatButton(
+            onPressed: () => {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return earthListPage();
+              })),
+            },
+            color: Colors.blue,
+            textColor: Colors.white,
+            child: Text('进入下个页面'),
+          ),
+          Container(
+            alignment: Alignment.topRight,
+            child: Text('右上角'),
           ),
         ]);
   }
@@ -137,3 +217,22 @@ class _GameShowState extends State<GameShow> {
     );
   }
 }
+
+//吸底的效果
+// body: Column(
+//         children: <Widget>[
+//           Expanded(
+//             child: Container(),
+//           ),
+//           Container(
+//             child: TextField(
+//                   decoration: InputDecoration(
+//                       border: InputBorder.none, hintText: 'Enter a search term'),
+//                   onChanged: (text) {
+//                     print('change $text');
+//                   },
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
