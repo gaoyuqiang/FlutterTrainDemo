@@ -1,6 +1,7 @@
-# test_demo
+# FlutterTrainDemo
 
 A new Flutter project.
+里面包括常用控件使用，仿币世界App界面，仿今日头条界面。
 
 ## Getting Started
 
