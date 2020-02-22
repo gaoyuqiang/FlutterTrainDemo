@@ -8,8 +8,8 @@
         "name": "Dart",
         "type": "dart",
         "request": "launch",
-        "program": "lib/main.dart"
-        // "program": "lib/CupertinoMain.dart"
+        // "program": "lib/main.dart"
+        "program": "lib/tab_main_page.dart",
     },
     ]
 }

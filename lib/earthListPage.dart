@@ -14,7 +14,7 @@ class earthListPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: ListView.builder(
-            itemCount: 20,
+            itemCount: 3,
             itemBuilder: (BuildContext context, int index) {
               return buildListCell(index);
             },

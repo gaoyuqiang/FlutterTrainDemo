@@ -23,14 +23,14 @@ class _GameShowState extends State<GameShow> {
         title: new Text('控件集合'),
       ),
       body: Container(
-      padding: EdgeInsets.only(top: 64, left: 20, right: 20, bottom: 20),
-      color: Colors.yellow,
-      child: ListView(
-        children: <Widget>[
-          buildColumn(),
-        ],
+        padding: EdgeInsets.only(top: 64, left: 20, right: 20, bottom: 20),
+        color: Colors.yellow,
+        child: ListView(
+          children: <Widget>[
+            buildColumn(),
+          ],
+        ),
       ),
-    ),
     );
   }
 
@@ -92,6 +92,15 @@ class _GameShowState extends State<GameShow> {
             color: Colors.green,
             child: Text(
                 "1123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj123afdajfa;faj23afdajfa;faj"),
+          ),
+          CircleAvatar(
+            radius: 40,
+            child: Image.asset(
+              'images/b.png',
+              width: 80,
+              height: 80,
+              fit: BoxFit.cover,
+            ),
           ),
           Image.asset(
             'images/a.png',

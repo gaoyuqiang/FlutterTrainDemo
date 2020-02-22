@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'earthListPage.dart';
 import 'game_show.dart';
+import 'mine/mine_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
 
   static const List<String> _dataList = [
-    '控件集合 GameShow',
-    '币世界',
+    '控件集合',
+    '仿币世界',
+    '仿今日头条',
   ];
   @override
   Widget build(BuildContext context) {
@@ -61,12 +63,20 @@ class HomePage extends StatelessWidget {
   void clickCell(BuildContext context, int index) {
     if (index == 0) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return GameShow(name: '高大爷', pwd: '1234');
+        return GameShow(name: '测试name', pwd: '1234');
       }));
-
     } else if (index == 1) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return earthListPage();
+      }));
+    } else if (index == 2) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return Scaffold(
+          appBar: new AppBar(
+            title: new Text('仿今日头条'),
+          ),
+          body: MinePage(),
+        );
       }));
     }
   }
